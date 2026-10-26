@@ -1,3 +1,5 @@
+- 26 October 2026 - Version 1.7.2.post1 (CassandraGargoyle fork)
+    - Require `opencv-python>=5` instead of `opencv-python-headless`; both install the same `cv2` module, and the headless 4.x package replaced OpenCV 5 of the projects that use EasyOCR (cassandragargoyle/portunix-reco#70)
 - 24 September 2024 - Version 1.7.2
     - Fix several compatibilities
 - 4 September 2023 - Version 1.7.1
