@@ -1,9 +1,22 @@
 # EasyOCR
 
-[![PyPI Status](https://badge.fury.io/py/easyocr.svg)](https://badge.fury.io/py/easyocr)
 [![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/JaidedAI/EasyOCR/blob/master/LICENSE)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/JaidedAI/EasyOCR.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20library:%20EasyOCR%20https://github.com/JaidedAI/EasyOCR)
 [![Twitter](https://img.shields.io/badge/twitter-@JaidedAI-blue.svg?style=flat)](https://twitter.com/JaidedAI)
+
+> **CassandraGargoyle fork** of [JaidedAI/EasyOCR](https://github.com/JaidedAI/EasyOCR).
+> The code of EasyOCR is not changed. The fork requires `opencv-python>=5` instead of
+> `opencv-python-headless`: both packages install the same `cv2` module, and the package
+> installed last wins, so the headless 4.x package replaced OpenCV 5 in
+> [portunix-reco](https://github.com/cassandragargoyle/portunix-reco) (issue
+> [#70](https://github.com/cassandragargoyle/portunix-reco/issues/70)).
+>
+> ```bash
+> pip install "easyocr @ git+https://github.com/cassandragargoyle/EasyOCR@v1.7.2.post1"
+> ```
+>
+> A new fork version raises the version in `setup.py` and `easyocr/__init__.py`
+> (`1.7.2.post2`, ...), adds an entry to `releasenotes.md` and gets the tag `v<version>`.
 
 Ready-to-use OCR with 80+ [supported languages](https://www.jaided.ai/easyocr) and all popular writing scripts including: Latin, Chinese, Arabic, Devanagari, Cyrillic, etc.
 
@@ -13,10 +26,12 @@ Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [
 
 
 ## What's new
+- 26 October 2026 - Version 1.7.2.post1 (CassandraGargoyle fork)
+    - Require `opencv-python>=5` instead of `opencv-python-headless`
 - 24 September 2024 - Version 1.7.2
     - Fix several compatibilities
 
-- [Read all release notes](https://github.com/JaidedAI/EasyOCR/blob/master/releasenotes.md)
+- [Read all release notes](releasenotes.md)
 
 ## What's coming next
 - Handwritten text support
@@ -32,23 +47,30 @@ Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [
 
 ## Installation
 
-Install using `pip`
+Install using `pip` from this fork. `pip install easyocr` installs the original package
+from PyPI, which requires `opencv-python-headless` (see the note at the top).
 
-For the latest stable release:
+For the latest release of the fork (a tag):
 
 ``` bash
-pip install easyocr
+pip install "easyocr @ git+https://github.com/cassandragargoyle/EasyOCR@v1.7.2.post1"
 ```
 
-For the latest development release:
+For the latest development state of the fork:
 
 ``` bash
-pip install git+https://github.com/JaidedAI/EasyOCR.git
+pip install git+https://github.com/cassandragargoyle/EasyOCR.git
+```
+
+In a `pyproject.toml`, use the tag, so every install gets the same code:
+
+``` toml
+dependencies = ["easyocr @ git+https://github.com/cassandragargoyle/EasyOCR@v1.7.2.post1"]
 ```
 
 Note 1: For Windows, please install torch and torchvision first by following the official instructions here https://pytorch.org. On the pytorch website, be sure to select the right CUDA version you have. If you intend to run on CPU mode only, select `CUDA = None`.
 
-Note 2: We also provide a Dockerfile [here](https://github.com/JaidedAI/EasyOCR/blob/master/Dockerfile).
+Note 2: We also provide a Dockerfile [here](Dockerfile).
 
 ## Usage
 
